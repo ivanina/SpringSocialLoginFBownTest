@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 public class ApplicationFB {
     public static void main(String[] args) {
-        SpringApplication.run(hello.Application.class, args);
+        SpringApplication.run(fb.ApplicationFB.class, args);
     }
 }

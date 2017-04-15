@@ -11,3 +11,4 @@
 
 - [Framework Guides for the JavaScript SDK](https://developers.facebook.com/docs/javascript/frameworks)
 - - [Facebook SDK for JavaScript with AngularJS](https://developers.facebook.com/docs/javascript/howto/angularjs)
+- [Spring Social Facebook Reference](http://docs.spring.io/spring-social-facebook/docs/current-SNAPSHOT/reference/htmlsingle/)
