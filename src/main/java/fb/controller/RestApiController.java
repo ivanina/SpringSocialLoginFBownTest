@@ -1,7 +1,7 @@
-package fb;
+package fb.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import fb.model.ApiData;
+import fb.model.FbData;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +28,7 @@ public class RestApiController {
                 User profile = facebook.userOperations().getUserProfile();
                 data = new FbData(1,profile.getAbout());
             }
-        }catch (NullPointerException  e){
+        }catch (Exception  e ){
             data = new FbData(-2,e.getMessage());
         }
 

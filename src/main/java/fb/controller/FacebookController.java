@@ -1,6 +1,7 @@
-package fb;
+package fb.controller;
 
 import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,9 +20,9 @@ public class FacebookController {
 
     @RequestMapping()
     public String helloFacebook() {
-        if (!facebook.isAuthorized()) {
+        /*if (!facebook.isAuthorized()) {
             return "redirect:/connect/facebook";
-        }
+        }*/
 
         return "fb_index";
     }

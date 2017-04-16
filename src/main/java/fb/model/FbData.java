@@ -1,7 +1,6 @@
-package fb;
+package fb.model;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Getter
 @Setter
