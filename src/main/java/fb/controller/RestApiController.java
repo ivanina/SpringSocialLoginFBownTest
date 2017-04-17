@@ -2,10 +2,12 @@ package fb.controller;
 
 import fb.model.ApiData;
 import fb.model.FbData;
+import fb.entity.FbUser;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import fb.repository.FbUserRepository;
 
 import javax.inject.Inject;
 
@@ -14,6 +16,9 @@ public class RestApiController {
 
     @Inject
     private Facebook facebook;
+
+    @Inject
+    private FbUserRepository fbUserRepository;
 
     @RequestMapping("/fb/api/general")
     public ApiData general(){
@@ -29,6 +34,8 @@ public class RestApiController {
 
                 String [] fields = { "id", "email",  "first_name", "last_name" };
                 User userProfile = facebook.fetchObject("me", User.class, fields);
+
+                FbUser user = fbUserRepository.findUserById(111222333);
                 data = new FbData(1,userProfile);
             }
         }catch (Exception  e ){

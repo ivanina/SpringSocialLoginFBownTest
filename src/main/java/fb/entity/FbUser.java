@@ -1,15 +1,14 @@
-package model;
+package fb.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "fbuser")
 public class FbUser {
     @Id
     @Column(name = "id")
