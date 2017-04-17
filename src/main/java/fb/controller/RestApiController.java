@@ -25,8 +25,11 @@ public class RestApiController {
                 data =  new FbData(0,"Not authenticated");
             }else {
                 //TODO
-                User profile = facebook.userOperations().getUserProfile();
-                data = new FbData(1,profile.getAbout());
+                //User profile = facebook.userOperations().getUserProfile();
+
+                String [] fields = { "id", "email",  "first_name", "last_name" };
+                User userProfile = facebook.fetchObject("me", User.class, fields);
+                data = new FbData(1,userProfile);
             }
         }catch (Exception  e ){
             data = new FbData(-2,e.getMessage());
