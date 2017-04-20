@@ -1,8 +1,8 @@
-package social.controller;
+package social_light.controller;
 
-import social.entity.domain.FbUser;
-import social.repository.manager.FbUserRepository;
-import social.service.fb.FbUserService;
+import social_light.entity.domain.FbUser;
+import social_light.repository.manager.FbUserRepository;
+import social_light.service.fb.FbUserService;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class FbAuthenticationController {
     FbUser getCurrentFbUser(){
 
         List<FbUser> uL = (List<FbUser>) fbUserRepository.findAll();
-        FbUser u1 = fbUserRepository.findOne(1L);
         FbUser u2 = fbUserRepository.findByFbIdIs(1001L);
 
         if(u2 == null){
