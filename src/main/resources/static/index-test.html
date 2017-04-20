@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="./downloaded/jquery.min.js"></script>
+
+    <script>
+        // /connect/facebook
+        // /api/fb/authentication
+        jQuery.noConflict();
+        jQuery(document).ready(function ($) {
+            $(".tkm-fb-login-button").click(function () {
+                if(tkmFbUser.id){
+                    this.html += ")";
+                }else{
+                    $('<form method="POST" action="/connect/facebook" ><input type="hidden" name="scope" value="read_stream" /></form>')
+                        .appendTo('body').submit();
+                }
+            });
+            var tkmFbUser = {};
+
+            $.ajax({
+                method: "POST",
+                url: "/api/fb/authentication",
+                data: { },
+                cache: false,
+                dataType: "json"
+            }).done(function (data) {
+                console.log(data);
+                tkmFbUser = data;
+                if(data.firstName){
+                    $(".tkm-fb-login-button button").html(data.firstName)
+                }else{
+                    $(".tkm-fb-login-button button").html("not logged")
+                }
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<h4>^_^</h4>
+
+<div class="tkm-fb-login-button"><button type="button">....</button></div>
+
+
+</body>
+</html>
